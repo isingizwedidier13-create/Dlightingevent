@@ -4,7 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>D Lighting Event | Professional Event Production</title>
+  <title>D Lighting Event | Professional Event Lighting & Sound</title>
+
+  <meta name="description"
+    content="D Lighting Event provides professional lighting, sound systems, stage solutions and LED screen services for weddings, concerts, shows and special events.">
+
+  <meta name="keywords"
+    content="D Lighting Event, event lighting, sound system, stage lighting, LED screen, Rwanda events">
 
   <style>
     * {
@@ -15,214 +21,428 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background: #0b0b12;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #080808;
       color: white;
       line-height: 1.6;
     }
 
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* HEADER */
     header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      padding: 15px 7%;
-      background: rgba(11,11,18,0.95);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       z-index: 1000;
-      border-bottom: 1px solid #292936;
+      background: rgba(0,0,0,0.94);
+      border-bottom: 1px solid #222;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-container {
+      width: 92%;
+      max-width: 1200px;
+      height: 75px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
     .logo {
-      height: 55px;
-      width: auto;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #ffcc00;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
     }
 
     nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 25px;
+      font-size: 14px;
       font-weight: bold;
+      transition: 0.3s;
     }
 
     nav a:hover {
-      color: #b45cff;
+      color: #ffcc00;
     }
 
+    .menu-btn {
+      display: none;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
+    /* HERO */
     .hero {
       min-height: 100vh;
+      padding: 130px 7% 80px;
       display: flex;
       align-items: center;
-      padding: 120px 7% 60px;
+      justify-content: center;
+      text-align: center;
+
       background:
-        linear-gradient(rgba(5,5,12,0.7), rgba(5,5,12,0.9)),
-        url("event-4.png") center/cover;
+        linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.9)),
+        radial-gradient(circle at center, #333, #080808 70%);
     }
 
     .hero-content {
-      max-width: 700px;
+      max-width: 850px;
     }
 
-    .hero small {
-      color: #c16cff;
-      font-weight: bold;
-      letter-spacing: 2px;
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: 1.05;
+      margin-bottom: 25px;
     }
 
-    h1 {
-      font-size: clamp(45px, 7vw, 85px);
-      line-height: 1;
-      margin: 20px 0;
-    }
-
-    h1 span {
-      color: #b45cff;
+    .hero h1 span {
+      color: #ffcc00;
     }
 
     .hero p {
-      font-size: 20px;
-      color: #d0d0d8;
-      margin-bottom: 30px;
+      color: #ddd;
+      font-size: 18px;
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
     }
 
     .btn {
-      display: inline-block;
       padding: 14px 25px;
-      border-radius: 30px;
-      text-decoration: none;
+      border-radius: 6px;
       font-weight: bold;
-      margin-right: 10px;
-      margin-bottom: 10px;
+      transition: .3s;
     }
 
-    .primary {
-      background: #a940ff;
-      color: white;
+    .btn-primary {
+      background: #ffcc00;
+      color: #000;
     }
 
-    .secondary {
-      border: 1px solid #a940ff;
-      color: white;
+    .btn-primary:hover {
+      background: white;
+      transform: translateY(-3px);
     }
 
+    .btn-outline {
+      border: 1px solid white;
+    }
+
+    .btn-outline:hover {
+      background: white;
+      color: black;
+    }
+
+    /* GENERAL */
     section {
       padding: 90px 7%;
     }
 
-    .title {
+    .section-title {
       text-align: center;
       margin-bottom: 50px;
     }
 
-    .title h2 {
-      font-size: 42px;
+    .section-title h2 {
+      font-size: 40px;
       margin-bottom: 10px;
     }
 
-    .title p {
+    .section-title span {
+      color: #ffcc00;
+    }
+
+    .section-title p {
       color: #aaa;
     }
 
-    .services {
+    /* SERVICES */
+    .services-grid {
+      max-width: 1200px;
+      margin: auto;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 20px;
     }
 
-    .card {
-      background: #15151f;
-      padding: 30px;
-      border-radius: 15px;
-      border: 1px solid #292936;
-    }
-
-    .card h3 {
-      color: #c16cff;
-      margin-bottom: 12px;
-      font-size: 22px;
-    }
-
-    .card p {
-      color: #bbb;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
-    }
-
-    .gallery img {
-      width: 100%;
-      height: 240px;
-      object-fit: cover;
+    .service-card {
+      background: #121212;
+      border: 1px solid #252525;
+      padding: 30px 22px;
       border-radius: 12px;
-      transition: 0.3s;
+      transition: .3s;
     }
 
-    .gallery img:hover {
-      transform: scale(1.03);
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-color: #ffcc00;
     }
 
+    .service-icon {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .service-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    /* ABOUT */
     .about {
+      background: #101010;
+    }
+
+    .about-content {
+      max-width: 1100px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about-text h2 {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    .about-text h2 span {
+      color: #ffcc00;
+    }
+
+    .about-text p {
+      color: #bbb;
+      margin-bottom: 15px;
+    }
+
+    .about-box {
+      padding: 35px;
+      background: #171717;
+      border-radius: 15px;
+      border: 1px solid #292929;
+    }
+
+    .about-box h3 {
+      color: #ffcc00;
+      margin-bottom: 15px;
+    }
+
+    .about-box p {
+      margin-bottom: 8px;
+      color: #ccc;
+    }
+
+    /* MEDIA */
+    .media-grid {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .media-item {
+      height: 230px;
+      background: linear-gradient(135deg, #222, #111);
+      border-radius: 10px;
+      border: 1px solid #252525;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      transition: .3s;
+    }
+
+    .media-item:hover {
+      transform: scale(1.02);
+      border-color: #ffcc00;
+    }
+
+    /* VIDEOS */
+    .video-section {
+      background: #101010;
+    }
+
+    .video-box {
       max-width: 900px;
       margin: auto;
+      aspect-ratio: 16 / 9;
+      background: #181818;
+      border-radius: 15px;
+      border: 1px solid #292929;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
     }
 
-    .about p {
-      color: #c5c5cc;
-      font-size: 18px;
+    .play {
+      font-size: 60px;
+      margin-bottom: 10px;
     }
 
-    .contact-box {
-      max-width: 700px;
+    .video-box p {
+      color: #aaa;
+    }
+
+    /* CONTACT */
+    .contact-grid {
+      max-width: 1000px;
       margin: auto;
-      text-align: center;
-      background: #15151f;
-      padding: 40px;
-      border-radius: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
     }
 
-    .contact-box p {
-      margin: 15px 0;
-      font-size: 18px;
-    }
-
-    footer {
-      text-align: center;
+    .contact-card {
+      background: #121212;
       padding: 30px;
-      background: #07070c;
-      color: #999;
+      border-radius: 12px;
+      border: 1px solid #222;
     }
 
-    @media (max-width: 800px) {
+    .contact-card h3 {
+      color: #ffcc00;
+      margin-bottom: 18px;
+    }
+
+    .contact-card p {
+      color: #bbb;
+      margin-bottom: 12px;
+    }
+
+    .contact-card a:hover {
+      color: #ffcc00;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #050505;
+      padding: 35px 7%;
+      text-align: center;
+      border-top: 1px solid #222;
+    }
+
+    footer p {
+      color: #888;
+      font-size: 14px;
+    }
+
+    footer span {
+      color: #ffcc00;
+    }
+
+    /* WHATSAPP */
+    .whatsapp {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 27px;
+      z-index: 999;
+      box-shadow: 0 5px 20px rgba(0,0,0,.5);
+    }
+
+    /* BACK TO TOP */
+    .top {
+      position: fixed;
+      right: 20px;
+      bottom: 90px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #ffcc00;
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      z-index: 999;
+    }
+
+    /* MOBILE */
+    @media(max-width:850px) {
+
+      .menu-btn {
+        display: block;
+      }
+
       nav {
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background: #090909;
         display: none;
       }
 
-      .services {
+      nav.active {
+        display: block;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      nav li {
+        border-bottom: 1px solid #222;
+      }
+
+      nav a {
+        display: block;
+        padding: 16px 7%;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .media-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .about-content,
+      .contact-grid {
         grid-template-columns: 1fr;
-      }
-
-      .gallery {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .gallery img {
-        height: 180px;
-      }
-
-      h1 {
-        font-size: 52px;
       }
     }
 
-    @media (max-width: 500px) {
-      .gallery {
-        grid-template-columns: 1fr;
+    @media(max-width:550px) {
+
+      section {
+        padding: 70px 5%;
       }
 
       .hero {
@@ -230,510 +450,26 @@
         padding-right: 5%;
       }
 
-      section {
-        padding-left: 5%;
-        padding-right: 5%;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <header>
-    <img src="logo.png" alt="D Lighting Event Logo" class="logo">
-
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#work">Our Work</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <!-- HOME -->
-  <section class="hero" id="home">
-    <div class="hero-content">
-
-      <small>PROFESSIONAL EVENT PRODUCTION</small>
-
-      <h1>
-        We bring your
-        <span>events to life.</span>
-      </h1>
-
-      <p>
-        Professional lighting, sound, staging and event production
-        for weddings, concerts, celebrations and special events.
-      </p>
-
-      <a
-        href="https://wa.me/250783404051"
-        class="btn primary"
-        target="_blank">
-        Book on WhatsApp
-      </a>
-
-      <a href="#work" class="btn secondary">
-        View Our Work
-      </a>
-
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services">
-
-    <div class="title">
-      <h2>Our Services</h2>
-      <p>Everything you need to make your event stand out.</p>
-    </div>
-
-    <div class="services">
-
-      <div class="card">
-        <h3>Lighting Systems</h3>
-        <p>
-          Professional stage lighting and creative lighting
-          setups for different types of events.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Sound & Mixing</h3>
-        <p>
-          Powerful professional sound systems and audio mixing
-          for clear and quality sound.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Staging & Design</h3>
-        <p>
-          Stage setup and event design created to match
-          your event and audience.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>LED Screens</h3>
-        <p>
-          LED screen solutions for concerts, weddings,
-          conferences and outdoor events.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Event Production</h3>
-        <p>
-          Complete technical support from preparation
-          to the final moment of your event.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Event Concepts</h3>
-        <p>
-          Creative ideas and professional technical solutions
-          to make your event memorable.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- OUR WORK -->
-  <section id="work">
-
-    <div class="title">
-      <h2>Our Work</h2>
-      <p>Some of our event production work.</p>
-    </div>
-
-    <div class="gallery">
-
-      <img src="event-1.png" alt="D Lighting Event work">
-      <img src="event-2.jpg" alt="D Lighting Event work">
-      <img src="event-3.jpg" alt="D Lighting Event work">
-      <img src="event-4.png" alt="D Lighting Event work">
-      <img src="event-5.jpg" alt="D Lighting Event work">
-      <img src="event-6.jpg" alt="D Lighting Event work">
-      <img src="event-7.jpg" alt="D Lighting Event work">
-      <img src="event-8.jpg" alt="D Lighting Event work">
-
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-
-    <div class="about">
-
-      <div class="title">
-        <h2>About D Lighting Event</h2>
-      </div>
-
-      <p>
-        D Lighting Event provides professional event production
-        services including lighting, sound, staging and LED screens.
-        Our goal is to deliver reliable technical solutions and
-        create an unforgettable experience for every event.
-      </p>
-
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-
-    <div class="title">
-      <h2>Contact Us</h2>
-      <p>Let's make your next event unforgettable.</p>
-    </div>
-
-    <div class="contact-box">
-
-      <p>
-        📞 <strong>Phone:</strong>
-        <a href="tel:+250783404051" style="color:#c16cff;">
-          +250 783 404 051
-        </a>
-      </p>
-
-      <p>
-        💬 <strong>WhatsApp:</strong>
-        <a
-          href="https://wa.me/250783404051"
-          target="_blank"
-          style="color:#c16cff;">
-          Chat with us
-        </a>
-      </p>
-
-      <br>
-
-      <a
-        href="https://wa.me/250783404051"
-        class="btn primary"
-        target="_blank">
-        Contact Us on WhatsApp
-      </a>
-
-    </div>
-
-  </section>
-
-  <footer>
-    <p>© 2026 D Lighting Event. All Rights Reserved.</p>
-  </footer>
-
-</body>
-</html><!-- CONTACT -->
-<section class="contact" id="contact"></section><!-- CONTACT -->
-<section class="contact" id="contact">
-
-  <h2>Let's Work Together</h2>
-
-  <p>
-    Contact D Lighting Event for your next event.
-  </p>
-
-  <div class="social-links">
-
-    <a
-      href="https://wa.me/250783404051"
-      target="_blank"
-      class="contact-btn">
-      💬 WhatsApp
-    </a>
-
-    <a
-      href="mailto:dlightingevent@gmail.com"
-      class="contact-btn">
-      📧 Email
-    </a>
-
-    <a
-      href="https://instagram.com/d_lighting_events"
-      target="_blank"
-      class="contact-btn">
-      📸 Instagram
-    </a>
-
-    <a
-      href="https://www.tiktok.com/@didierisingi3"
-      target="_blank"
-      class="contact-btn">
-      🎵 TikTok
-    </a>
-
-  </div>
-
-</section <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>D Lighting Event | Professional Events</title>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #08080d;
-      color: white;
-    }
-
-    /* HEADER */
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 15px 6%;
-      background: rgba(5,5,10,0.92);
-      backdrop-filter: blur(10px);
-    }
-
-    .logo {
-      width: 70px;
-      height: 70px;
-      object-fit: contain;
-    }
-
-    nav {
-      display: flex;
-      gap: 25px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 15px;
-    }
-
-    nav a:hover {
-      color: #c15cff;
-    }
-
-    /* HOME */
-    .home {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 120px 7% 70px;
-
-      background:
-        linear-gradient(
-          rgba(5,5,10,0.65),
-          rgba(5,5,10,0.92)
-        ),
-        url("event-4.png");
-
-      background-size: cover;
-      background-position: center;
-    }
-
-    .home-content {
-      max-width: 750px;
-    }
-
-    .tag {
-      color: #c45cff;
-      font-size: 14px;
-      font-weight: bold;
-      letter-spacing: 3px;
-      margin-bottom: 20px;
-    }
-
-    .home h1 {
-      font-size: clamp(48px, 8vw, 90px);
-      line-height: 1;
-      margin-bottom: 25px;
-    }
-
-    .home h1 span {
-      color: #bd55ff;
-    }
-
-    .home p {
-      color: #d0d0d8;
-      font-size: 19px;
-      max-width: 650px;
-      margin-bottom: 35px;
-    }
-
-    /* BUTTONS */
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 15px 27px;
-      border-radius: 35px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .primary {
-      background: #a83fff;
-      color: white;
-    }
-
-    .primary:hover {
-      transform: translateY(-3px);
-    }
-
-    .secondary {
-      border: 1px solid #a83fff;
-      color: white;
-    }
-
-    .secondary:hover {
-      background: #a83fff;
-    }
-
-    /* QUICK SERVICES */
-    .quick {
-      padding: 70px 7%;
-      background: #0e0e16;
-    }
-
-    .quick-title {
-      text-align: center;
-      margin-bottom: 35px;
-    }
-
-    .quick-title h2 {
-      font-size: 35px;
-      margin-bottom: 10px;
-    }
-
-    .quick-title p {
-      color: #aaa;
-    }
-
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .service {
-      background: #161620;
-      border: 1px solid #292936;
-      padding: 25px;
-      border-radius: 15px;
-      text-align: center;
-    }
-
-    .service h3 {
-      color: #c45cff;
-      margin-bottom: 8px;
-    }
-
-    .service p {
-      color: #aaa;
-      font-size: 14px;
-    }
-
-    /* CONTACT */
-    .contact {
-      padding: 80px 7%;
-      text-align: center;
-      background: #08080d;
-    }
-
-    .contact h2 {
-      font-size: 38px;
-      margin-bottom: 15px;
-    }
-
-    .contact p {
-      color: #bbb;
-      margin-bottom: 25px;
-    }
-
-    /* FOOTER */
-    footer {
-      padding: 25px;
-      text-align: center;
-      background: #050507;
-      color: #888;
-      font-size: 14px;
-    }
-
-    /* MOBILE */
-    @media (max-width: 800px) {
-
-      header {
-        padding: 10px 5%;
+      .hero p {
+        font-size: 16px;
       }
 
-      .logo {
-        width: 60px;
-        height: 60px;
-      }
-
-      nav {
-        gap: 12px;
-      }
-
-      nav a {
-        font-size: 12px;
-      }
-
-      .home {
-        padding: 120px 5% 60px;
-        min-height: 95vh;
-      }
-
-      .home h1 {
-        font-size: 50px;
-      }
-
-      .home p {
-        font-size: 17px;
-      }
-
-      .service-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 500px) {
-
-      nav {
-        display: none;
-      }
-
-      .home h1 {
-        font-size: 45px;
-      }
-
-      .service-grid {
+      .services-grid,
+      .media-grid {
         grid-template-columns: 1fr;
+      }
+
+      .section-title h2,
+      .about-text h2 {
+        font-size: 32px;
+      }
+
+      .buttons {
+        flex-direction: column;
       }
 
       .btn {
         width: 100%;
-        text-align: center;
       }
     }
   </style>
@@ -744,52 +480,58 @@
   <!-- HEADER -->
   <header>
 
-    <a href="#home">
-      <img src="logo.png" class="logo" alt="D Lighting Event">
-    </a>
+    <div class="nav-container">
 
-    <nav>
-      <a href="#home">HOME</a>
-      <a href="#services">SERVICES</a>
-      <a href="#contact">CONTACT</a>
-    </nav>
+      <a href="#home" class="logo">
+        D <span>Lighting</span> Event
+      </a>
+
+      <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+      <nav id="nav">
+
+        <ul>
+          <li><a href="#home" onclick="closeMenu()">Home</a></li>
+          <li><a href="#services" onclick="closeMenu()">Services</a></li>
+          <li><a href="#media" onclick="closeMenu()">Media</a></li>
+          <li><a href="#videos" onclick="closeMenu()">Videos</a></li>
+          <li><a href="#about" onclick="closeMenu()">About</a></li>
+          <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+        </ul>
+
+      </nav>
+
+    </div>
 
   </header>
 
 
   <!-- HOME -->
-  <section class="home" id="home">
+  <section class="hero" id="home">
 
-    <div class="home-content">
-
-      <div class="tag">
-        PROFESSIONAL EVENT PRODUCTION
-      </div>
+    <div class="hero-content">
 
       <h1>
-        We bring your
-        <span>events to life.</span>
+        Professional <span>Event</span><br>
+        Lighting & Sound
       </h1>
 
       <p>
-        Professional lighting, sound, staging and LED screen
-        solutions for weddings, concerts, celebrations and
-        special events.
+        We provide professional lighting, sound systems, stage solutions
+        and LED screen services for weddings, concerts, shows and special events.
       </p>
 
       <div class="buttons">
 
         <a
           href="https://wa.me/250783404051"
-          target="_blank"
-          class="btn primary">
-          BOOK ON WHATSAPP
+          class="btn btn-primary"
+          target="_blank">
+          Get a Quote
         </a>
 
-        <a
-          href="#services"
-          class="btn secondary">
-          OUR SERVICES
+        <a href="#media" class="btn btn-outline">
+          View Our Work
         </a>
 
       </div>
@@ -799,48 +541,200 @@
   </section>
 
 
-  <!-- SERVICES PREVIEW -->
-  <section class="quick" id="services">
+  <!-- SERVICES -->
+  <section id="services">
 
-    <div class="quick-title">
+    <div class="section-title">
 
-      <h2>What We Do</h2>
+      <h2>Our <span>Services</span></h2>
 
       <p>
-        Professional technical solutions for unforgettable events.
+        Professional solutions for unforgettable events.
       </p>
 
     </div>
 
 
-    <div class="service-grid">
+    <div class="services-grid">
 
-      <div class="service">
-        <h3>Lighting</h3>
+      <div class="service-card">
+
+        <div class="service-icon">💡</div>
+
+        <h3>Event Lighting</h3>
+
         <p>
-          Professional stage and event lighting.
+          Professional stage and event lighting designed
+          to create the right atmosphere for your event.
         </p>
+
       </div>
 
-      <div class="service">
-        <h3>Sound</h3>
+
+      <div class="service-card">
+
+        <div class="service-icon">🔊</div>
+
+        <h3>Sound System</h3>
+
         <p>
-          Powerful and clear professional sound systems.
+          Quality sound systems for weddings, concerts,
+          shows, conferences and other events.
         </p>
+
       </div>
 
-      <div class="service">
-        <h3>Staging</h3>
+
+      <div class="service-card">
+
+        <div class="service-icon">🎤</div>
+
+        <h3>Stage Solutions</h3>
+
         <p>
-          Stage setup and event design.
+          Stage equipment and technical solutions to make
+          your event professional and impressive.
         </p>
+
       </div>
 
-      <div class="service">
+
+      <div class="service-card">
+
+        <div class="service-icon">📺</div>
+
         <h3>LED Screens</h3>
+
         <p>
-          LED screens for concerts and events.
+          LED screen solutions for concerts, events,
+          advertising and presentations.
         </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+
+    <div class="about-content">
+
+      <div class="about-text">
+
+        <h2>
+          About <span>D Lighting Event</span>
+        </h2>
+
+        <p>
+          D Lighting Event is an event production and technical
+          services business focused on professional lighting,
+          sound and event solutions.
+        </p>
+
+        <p>
+          Our goal is to help clients create events that look,
+          sound and feel professional.
+        </p>
+
+        <p>
+          From weddings and concerts to shows and special events,
+          we provide solutions according to the needs of each client.
+        </p>
+
+      </div>
+
+
+      <div class="about-box">
+
+        <h3>Why Choose Us?</h3>
+
+        <p>✔ Professional event solutions</p>
+        <p>✔ Lighting & sound services</p>
+        <p>✔ Stage & LED screen solutions</p>
+        <p>✔ Flexible event packages</p>
+        <p>✔ Focus on quality and client satisfaction</p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- MEDIA -->
+  <section id="media">
+
+    <div class="section-title">
+
+      <h2>Our <span>Media</span></h2>
+
+      <p>
+        Take a look at some of our work and event productions.
+      </p>
+
+    </div>
+
+
+    <div class="media-grid">
+
+      <div class="media-item">
+        <span>Event Photo 01</span>
+      </div>
+
+      <div class="media-item">
+        <span>Event Photo 02</span>
+      </div>
+
+      <div class="media-item">
+        <span>Event Photo 03</span>
+      </div>
+
+      <div class="media-item">
+        <span>Event Photo 04</span>
+      </div>
+
+      <div class="media-item">
+        <span>Event Photo 05</span>
+      </div>
+
+      <div class="media-item">
+        <span>Event Photo 06</span>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- VIDEOS -->
+  <section class="video-section" id="videos">
+
+    <div class="section-title">
+
+      <h2>Our <span>Videos</span></h2>
+
+      <p>
+        Watch our latest event productions.
+      </p>
+
+    </div>
+
+
+    <div class="video-box">
+
+      <div>
+
+        <div class="play">▶</div>
+
+        <h3>D Lighting Event</h3>
+
+        <p>
+          Our YouTube videos will appear here.
+        </p>
+
       </div>
 
     </div>
@@ -849,20 +743,87 @@
 
 
   <!-- CONTACT -->
-  <section class="contact" id="contact">
+  <section id="contact">
 
-    <h2>Let's work together</h2>
+    <div class="section-title">
 
-    <p>
-      Contact D Lighting Event for your next event.
-    </p>
+      <h2>Contact <span>Us</span></h2>
 
-    <a
-      href="https://wa.me/250783404051"
-      target="_blank"
-      class="btn primary">
-      CONTACT US
-    </a>
+      <p>
+        Ready to make your event special? Get in touch with us.
+      </p>
+
+    </div>
+
+
+    <div class="contact-grid">
+
+      <div class="contact-card">
+
+        <h3>Get In Touch</h3>
+
+        <p>
+          📞 Phone / WhatsApp:
+          <a
+            href="https://wa.me/250783404051"
+            target="_blank">
+            +250 783 404 051
+          </a>
+        </p>
+
+        <p>
+          📧 Email:
+          <a href="mailto:dlightingevent@gmail.com">
+            dlightingevent@gmail.com
+          </a>
+        </p>
+
+        <p>
+          💬
+          <a
+            href="https://wa.me/250783404051"
+            target="_blank">
+            Chat with us on WhatsApp
+          </a>
+        </p>
+
+      </div>
+
+
+      <div class="contact-card">
+
+        <h3>Follow Us</h3>
+
+        <p>
+          📸 Instagram:
+          <a
+            href="https://instagram.com/d_lighting_events"
+            target="_blank">
+            @d_lighting_events
+          </a>
+        </p>
+
+        <p>
+          🎵 TikTok:
+          <a
+            href="https://tiktok.com/@didierisingi3"
+            target="_blank">
+            @didierisingi3
+          </a>
+        </p>
+
+        <p>
+          ▶️ YouTube:
+          <a
+            href="https://youtube.com/@didierisingizwe9747"
+            target="_blank">
+            Visit our YouTube
+          </a>
+        </p>
+
+      </div>
+
+    </div>
 
   </section>
 
@@ -870,10 +831,44 @@
   <!-- FOOTER -->
   <footer>
 
-    © 2026 D Lighting Event. All Rights Reserved.
+    <p>
+      © 2026 <span>D Lighting Event</span>.
+      All Rights Reserved.
+    </p>
+
+    <p>
+      Professional Lighting • Sound • Stage • LED Screens
+    </p>
 
   </footer>
 
+
+  <!-- WHATSAPP BUTTON -->
+  <a
+    class="whatsapp"
+    href="https://wa.me/250783404051"
+    target="_blank"
+    title="Chat with D Lighting Event on WhatsApp">
+    ☎
+  </a>
+
+
+  <!-- BACK TO TOP -->
+  <a href="#home" class="top">↑</a>
+
+
+  <!-- JAVASCRIPT -->
+  <script>
+
+    function toggleMenu() {
+      document.getElementById("nav").classList.toggle("active");
+    }
+
+    function closeMenu() {
+      document.getElementById("nav").classList.remove("active");
+    }
+
+  </script>
+
 </body>
-</html>
-}
+      </html>
