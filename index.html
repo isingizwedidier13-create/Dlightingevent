@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="rw">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +15,7 @@
         body {
             background-color: #121212;
             color: #ffffff;
+            scroll-behavior: smooth;
         }
 
         /* Navigation Header */
@@ -27,6 +28,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            border-bottom: 1px solid #333;
         }
 
         .logo-container {
@@ -36,7 +38,7 @@
         }
 
         .logo-container img {
-            height: 50px;
+            height: 45px;
             width: auto;
         }
 
@@ -46,9 +48,62 @@
             color: #ffcc00;
         }
 
+        /* Hamburger Menu Icon (Uturongo 3) */
+        .menu-icon {
+            font-size: 28px;
+            color: #ffcc00;
+            cursor: pointer;
+            display: block;
+        }
+
+        /* Navigation Drawer / Sidebar */
+        .nav-links {
+            position: fixed;
+            top: 0;
+            right: -250px; /* Banza buhishwe ku ruhande */
+            width: 250px;
+            height: 100vh;
+            background-color: #1a1a1a;
+            display: flex;
+            flex-direction: column;
+            padding: 80px 20px 20px 20px;
+            gap: 20px;
+            transition: 0.3s ease-in-out;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+
+        .nav-links.active {
+            right: 0; /* Bihita bizaza ku ruhande iyo ukanze uturongo 3 */
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            padding: 10px;
+            border-bottom: 1px solid #333;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffcc00;
+            padding-left: 15px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 30px;
+            color: #ffcc00;
+            cursor: pointer;
+        }
+
         /* Hero Background Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('hero-bg.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('event-8.jpg') center/cover no-repeat;
             height: 60vh;
             display: flex;
             flex-direction: column;
@@ -59,13 +114,13 @@
         }
 
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             color: #ffffff;
             margin-bottom: 10px;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #dddddd;
             margin-bottom: 20px;
         }
@@ -182,7 +237,7 @@
         }
     </style>
 </head>
-<body>
+<body id="home">
 
     <!-- Header / Navbar -->
     <header>
@@ -190,82 +245,88 @@
             <img src="logo.png" alt="D Lighting Event Logo">
             <span>D Lighting Event</span>
         </div>
+
+        <!-- Uturongo 3 (Menu Icon) -->
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+        <!-- Nav Links / Drawer -->
+        <nav class="nav-links" id="navLinks">
+            <span class="close-btn" onclick="toggleMenu()">&times;</span>
+            <a href="#home" onclick="toggleMenu()">🏠 Home</a>
+            <a href="#gallery" onclick="toggleMenu()">📷 Photo Gallery</a>
+            <a href="#layouts" onclick="toggleMenu()">📐 Stage Layouts</a>
+            <a href="#video" onclick="toggleMenu()">🎬 Event Video</a>
+            <a href="#contact" onclick="toggleMenu()">📞 Contact Us</a>
+        </nav>
     </header>
 
     <!-- Hero Section with Background Photo -->
     <section class="hero">
         <h1>Professional Event Lighting & Sound</h1>
-        <p>Tanga ubwiza n'umweru mu birori byawe no mu bitaramo!</p>
+        <p>Bringing vibrant energy, elegance, and premium quality to your events!</p>
     </section>
 
     <!-- Main Content Container -->
     <div class="container">
         
         <!-- Photo Gallery -->
-        <h2 class="section-title">Amafoto y'Ibirori</h2>
+        <h2 class="section-title" id="gallery">Event Photo Gallery</h2>
         <div class="gallery-grid">
             <div class="card">
-                <img src="event1.jpg" alt="Live Event Lighting">
+                <img src="event-1.png" alt="Live Event Lighting">
                 <div class="card-body"><h3>Live Concert & Stage Lights</h3></div>
             </div>
             <div class="card">
-                <img src="event2.jpg" alt="Audience & Sound Setup">
-                <div class="card-body"><h3>Audience Atmosphere</h3></div>
+                <img src="event-2.jpg" alt="Audience & Sound Setup">
+                <div class="card-body"><h3>Audience Atmosphere & Ambiance</h3></div>
             </div>
             <div class="card">
-                <img src="event3.jpg" alt="Choir Lighting Setup">
-                <div class="card-body"><h3>Stage & Choir Setup</h3></div>
+                <img src="event-3.jpg" alt="Choir Lighting Setup">
+                <div class="card-body"><h3>Stage & Performance Production</h3></div>
             </div>
             <div class="card">
-                <img src="event4.jpg" alt="Full Stage View">
-                <div class="card-body"><h3>Full Venue Production</h3></div>
+                <img src="event-4.png" alt="Full Stage View">
+                <div class="card-body"><h3>Full Venue Lighting Experience</h3></div>
             </div>
         </div>
 
         <!-- Technical Layouts -->
-        <h2 class="section-title">Stage Technical Layouts</h2>
+        <h2 class="section-title" id="layouts">Stage Technical Layouts</h2>
         <div class="gallery-grid">
             <div class="card">
-                <img src="plan1.jpg" alt="Stage Layout Design">
+                <img src="event-5.jpg" alt="Stage Layout Design">
                 <div class="card-body"><h3>Stage Design Plan</h3></div>
             </div>
             <div class="card">
-                <img src="plan2.jpg" alt="Lighting Plot Scheme">
+                <img src="event-6.jpg" alt="Lighting Plot Scheme">
                 <div class="card-body"><h3>Light Plot Blueprint</h3></div>
             </div>
         </div>
 
         <!-- Video Section -->
-        <h2 class="section-title">Video y'Ibirori</h2>
+        <h2 class="section-title" id="video">Featured Event Video</h2>
         <div class="video-container">
-            <video controls poster="event1.jpg">
+            <video controls poster="event-7.jpg">
                 <source src="event-video.mp4" type="video/mp4">
-                Browser yawe ntabwo ishyigikiye video.
+                Your browser does not support video playback.
             </video>
         </div>
 
         <!-- Social Media & Contact Info Section -->
-        <div class="social-section">
-            <h2 style="color: #ffcc00; margin-bottom: 10px;">Tuva ku Mbuga Nkoranyambaga</h2>
-            <p>Sura imbuga zacu urebereho amashusho meza n'amavideo y'ibirori twakoze:</p>
+        <div class="social-section" id="contact">
+            <h2 style="color: #ffcc00; margin-bottom: 10px;">Connect With Us</h2>
+            <p>Follow us on social media to see our latest lighting designs and event highlights:</p>
             
             <div class="social-links">
-                <!-- Instagram -->
                 <a href="https://www.instagram.com/dlightingevent" target="_blank" class="social-btn instagram">
                     📷 Instagram
                 </a>
-
-                <!-- TikTok -->
                 <a href="https://www.tiktok.com/@dlightingevent" target="_blank" class="social-btn tiktok">
                     🎵 TikTok
                 </a>
-
-                <!-- Email -->
                 <a href="mailto:dlightingevent@gmail.com" class="social-btn email">
                     ✉️ dlightingevent@gmail.com
                 </a>
-
-                <!-- Phone -->
                 <a href="tel:+250783404051" class="social-btn phone">
                     📞 +250 783 404 051
                 </a>
@@ -275,7 +336,15 @@
     </div>
 
     <!-- Floating Contact Button -->
-    <a href="tel:+250783404051" class="floating-btn">📞 Twandikire / Tuhamagare</a>
+    <a href="tel:+250783404051" class="floating-btn">📞 Call / WhatsApp</a>
+
+    <!-- JavaScript yo gufungura no gukinga Menu -->
+    <script>
+        function toggleMenu() {
+            var nav = document.getElementById("navLinks");
+            nav.classList.toggle("active");
+        }
+    </script>
 
 </body>
 </html>
