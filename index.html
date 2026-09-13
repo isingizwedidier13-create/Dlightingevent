@@ -3,346 +3,403 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D Lighting Event | Professional Event Lighting & Sound</title>
+    <title>D Lighting Event | Professional Stage Lighting & Sound</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: #121212;
-            color: #ffffff;
+            background-color: #f8f9fa;
+            color: #333;
             scroll-behavior: smooth;
         }
 
-        /* Navigation Header */
+        /* Top Header Navigation */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px 5%;
-            background-color: #1a1a1a;
+            background-color: #111111;
+            color: #fff;
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid #333;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .logo-container img {
-            height: 45px;
-            width: auto;
+            height: 40px;
         }
 
         .logo-container span {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: bold;
             color: #ffcc00;
+            letter-spacing: 1px;
         }
 
-        /* Hamburger Menu Icon (Uturongo 3) */
-        .menu-icon {
-            font-size: 28px;
-            color: #ffcc00;
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .menu-btn {
+            background-color: #222;
+            color: #fff;
+            border: 1px solid #444;
+            padding: 8px 12px;
+            font-size: 1.2rem;
+            border-radius: 4px;
             cursor: pointer;
+        }
+
+        /* Accordion Navigation Menu (JC LIGHT Style) */
+        .nav-drawer {
+            display: none;
+            background-color: #ffffff;
+            border-bottom: 2px solid #ddd;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .nav-drawer.active {
             display: block;
         }
 
-        /* Navigation Drawer / Sidebar */
-        .nav-links {
-            position: fixed;
-            top: 0;
-            right: -250px; /* Banza buhishwe ku ruhande */
-            width: 250px;
-            height: 100vh;
-            background-color: #1a1a1a;
-            display: flex;
-            flex-direction: column;
-            padding: 80px 20px 20px 20px;
-            gap: 20px;
-            transition: 0.3s ease-in-out;
-            box-shadow: -5px 0 15px rgba(0,0,0,0.5);
-            z-index: 999;
-        }
-
-        .nav-links.active {
-            right: 0; /* Bihita bizaza ku ruhande iyo ukanze uturongo 3 */
-        }
-
-        .nav-links a {
-            color: #ffffff;
+        .nav-item {
+            display: block;
+            padding: 14px 5%;
+            color: #222;
             text-decoration: none;
-            font-size: 1.1rem;
             font-weight: bold;
-            padding: 10px;
-            border-bottom: 1px solid #333;
-            transition: 0.3s;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #eee;
+            text-transform: uppercase;
         }
 
-        .nav-links a:hover {
+        .nav-item:hover {
+            background-color: #f1f1f1;
             color: #ffcc00;
-            padding-left: 15px;
         }
 
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 30px;
-            color: #ffcc00;
-            cursor: pointer;
-        }
-
-        /* Hero Background Section */
+        /* Hero Banner */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('event-8.jpg') center/cover no-repeat;
-            height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('event-8.jpg') center/cover no-repeat;
+            color: white;
+            padding: 60px 5%;
             text-align: center;
-            padding: 20px;
         }
 
         .hero h1 {
-            font-size: 2.3rem;
+            font-size: 2.2rem;
+            margin-bottom: 15px;
             color: #ffffff;
-            margin-bottom: 10px;
         }
 
         .hero p {
             font-size: 1.1rem;
-            color: #dddddd;
-            margin-bottom: 20px;
+            color: #cccccc;
+            max-width: 600px;
+            margin: 0 auto 20px;
         }
 
-        /* Gallery Sections */
+        /* Main Section Container */
         .container {
-            padding: 40px 5%;
+            padding: 30px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .section-title {
-            font-size: 1.8rem;
+        .breadcrumb {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .breadcrumb a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .section-header {
+            font-size: 1.5rem;
+            font-weight: bold;
             margin-bottom: 20px;
-            color: #ffcc00;
-            border-bottom: 2px solid #ffcc00;
-            display: inline-block;
-            padding-bottom: 5px;
+            text-transform: uppercase;
+            border-left: 4px solid #ffcc00;
+            padding-left: 10px;
+            color: #111;
         }
 
-        .gallery-grid {
+        /* Product / Service Showcase Cards */
+        .grid-layout {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            gap: 25px;
             margin-bottom: 40px;
         }
 
-        .card {
-            background-color: #1e1e1e;
-            border-radius: 10px;
+        .product-card {
+            background: #fff;
+            border: 1px solid #e2e2e2;
+            border-radius: 6px;
             overflow: hidden;
-            border: 1px solid #333;
+            transition: 0.3s;
+            text-align: center;
         }
 
-        .card img {
+        .product-card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .product-card img {
             width: 100%;
             height: 220px;
             object-fit: cover;
-            display: block;
+            background-color: #fafafa;
         }
 
-        .card-body {
-            padding: 15px;
+        .product-info {
+            padding: 20px;
         }
 
-        .card-body h3 {
-            font-size: 1.1rem;
-        }
-
-        /* Video Section */
-        .video-container {
-            margin-top: 20px;
-            background: #1e1e1e;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 40px;
-        }
-
-        video {
-            width: 100%;
-            border-radius: 8px;
-        }
-
-        /* Social Media & Contact Section */
-        .social-section {
-            background-color: #1a1a1a;
-            padding: 30px 20px;
-            border-radius: 12px;
-            text-align: center;
-            margin-bottom: 40px;
-            border: 1px solid #333;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 15px;
-        }
-
-        .social-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
+        .product-title {
+            font-size: 1.05rem;
             font-weight: bold;
-            color: #ffffff;
+            margin-bottom: 12px;
+            color: #222;
+        }
+
+        .btn-readmore {
+            display: inline-block;
+            padding: 8px 16px;
+            border: 1px solid #333;
+            color: #333;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
             transition: 0.3s;
         }
 
-        .instagram { background-color: #e1306c; }
-        .tiktok { background-color: #000000; border: 1px solid #00f2fe; }
-        .email { background-color: #ea4335; }
-        .phone { background-color: #25d366; }
-
-        .social-btn:hover {
-            opacity: 0.8;
+        .btn-readmore:hover {
+            background-color: #111;
+            color: #fff;
         }
 
-        /* Floating Contact Button */
-        .floating-btn {
+        /* Floating Sidebar Buttons (JC LIGHT Right-side style) */
+        .floating-sidebar {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #25d366;
+            right: 15px;
+            top: 45%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 999;
+        }
+
+        .float-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             color: white;
-            padding: 12px 18px;
-            border-radius: 50px;
             text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-            z-index: 1000;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+
+        .float-whatsapp { background-color: #25d366; }
+        .float-phone { background-color: #007bff; }
+        .float-email { background-color: #ea4335; }
+
+        .float-icon:hover {
+            transform: scale(1.1);
+        }
+
+        /* Professional Dark Footer */
+        footer {
+            background-color: #0d0d0d;
+            color: #aaa;
+            padding: 50px 5% 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #aaa;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .footer-col a:hover {
+            color: #ffcc00;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+            font-size: 0.85rem;
+            color: #666;
         }
     </style>
 </head>
-<body id="home">
+<body>
 
-    <!-- Header / Navbar -->
+    <!-- Header Navigation -->
     <header>
         <div class="logo-container">
             <img src="logo.png" alt="D Lighting Event Logo">
-            <span>D Lighting Event</span>
+            <span>D LIGHTING</span>
         </div>
-
-        <!-- Uturongo 3 (Menu Icon) -->
-        <div class="menu-icon" onclick="toggleMenu()">☰</div>
-
-        <!-- Nav Links / Drawer -->
-        <nav class="nav-links" id="navLinks">
-            <span class="close-btn" onclick="toggleMenu()">&times;</span>
-            <a href="#home" onclick="toggleMenu()">🏠 Home</a>
-            <a href="#gallery" onclick="toggleMenu()">📷 Photo Gallery</a>
-            <a href="#layouts" onclick="toggleMenu()">📐 Stage Layouts</a>
-            <a href="#video" onclick="toggleMenu()">🎬 Event Video</a>
-            <a href="#contact" onclick="toggleMenu()">📞 Contact Us</a>
-        </nav>
+        <div class="header-actions">
+            <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
+        </div>
     </header>
 
-    <!-- Hero Section with Background Photo -->
-    <section class="hero">
-        <h1>Professional Event Lighting & Sound</h1>
-        <p>Bringing vibrant energy, elegance, and premium quality to your events!</p>
+    <!-- Dropdown Navigation Drawer -->
+    <nav class="nav-drawer" id="navDrawer">
+        <a href="#home" class="nav-item" onclick="toggleMenu()">Home</a>
+        <a href="#services" class="nav-item" onclick="toggleMenu()">Products & Services</a>
+        <a href="#cases" class="nav-item" onclick="toggleMenu()">Event Portfolio</a>
+        <a href="#layouts" class="nav-item" onclick="toggleMenu()">Technical Layouts</a>
+        <a href="#contact" class="nav-item" onclick="toggleMenu()">Contact Us</a>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section class="hero" id="home">
+        <h1>D LIGHTING EVENT GROUP</h1>
+        <p>Professional Concert Lighting, Stage Design & Audio Systems Solutions</p>
     </section>
 
     <!-- Main Content Container -->
     <div class="container">
         
-        <!-- Photo Gallery -->
-        <h2 class="section-title" id="gallery">Event Photo Gallery</h2>
-        <div class="gallery-grid">
-            <div class="card">
-                <img src="event-1.png" alt="Live Event Lighting">
-                <div class="card-body"><h3>Live Concert & Stage Lights</h3></div>
+        <div class="breadcrumb">
+            <a href="#home">Home</a> &gt; <span>Stage Lighting & Sound Production</span>
+        </div>
+
+        <!-- Section 1: Services Showcase -->
+        <h2 class="section-header" id="services">Our Services & Equipment</h2>
+        <div class="grid-layout">
+            <div class="product-card">
+                <img src="event-1.png" alt="Concert Lighting">
+                <div class="product-info">
+                    <div class="product-title">Concert & Stage Lighting</div>
+                    <a href="tel:+250783404051" class="btn-readmore">Book Service →</a>
+                </div>
             </div>
-            <div class="card">
-                <img src="event-2.jpg" alt="Audience & Sound Setup">
-                <div class="card-body"><h3>Audience Atmosphere & Ambiance</h3></div>
+
+            <div class="product-card">
+                <img src="event-2.jpg" alt="Sound Systems">
+                <div class="product-info">
+                    <div class="product-title">Professional Audio Setup</div>
+                    <a href="tel:+250783404051" class="btn-readmore">Book Service →</a>
+                </div>
             </div>
-            <div class="card">
-                <img src="event-3.jpg" alt="Choir Lighting Setup">
-                <div class="card-body"><h3>Stage & Performance Production</h3></div>
-            </div>
-            <div class="card">
-                <img src="event-4.png" alt="Full Stage View">
-                <div class="card-body"><h3>Full Venue Lighting Experience</h3></div>
+
+            <div class="product-card">
+                <img src="event-3.jpg" alt="Choir & Event Production">
+                <div class="product-info">
+                    <div class="product-title">Stage Ambiance Production</div>
+                    <a href="tel:+250783404051" class="btn-readmore">Book Service →</a>
+                </div>
             </div>
         </div>
 
-        <!-- Technical Layouts -->
-        <h2 class="section-title" id="layouts">Stage Technical Layouts</h2>
-        <div class="gallery-grid">
-            <div class="card">
-                <img src="event-5.jpg" alt="Stage Layout Design">
-                <div class="card-body"><h3>Stage Design Plan</h3></div>
+        <!-- Section 2: Technical Layouts -->
+        <h2 class="section-header" id="layouts">Technical Blueprints & Layouts</h2>
+        <div class="grid-layout">
+            <div class="product-card">
+                <img src="event-5.jpg" alt="Stage Design Plan">
+                <div class="product-info">
+                    <div class="product-title">Custom Stage Design Plot</div>
+                    <a href="tel:+250783404051" class="btn-readmore">View Details →</a>
+                </div>
             </div>
-            <div class="card">
-                <img src="event-6.jpg" alt="Lighting Plot Scheme">
-                <div class="card-body"><h3>Light Plot Blueprint</h3></div>
-            </div>
-        </div>
 
-        <!-- Video Section -->
-        <h2 class="section-title" id="video">Featured Event Video</h2>
-        <div class="video-container">
-            <video controls poster="event-7.jpg">
-                <source src="event-video.mp4" type="video/mp4">
-                Your browser does not support video playback.
-            </video>
-        </div>
-
-        <!-- Social Media & Contact Info Section -->
-        <div class="social-section" id="contact">
-            <h2 style="color: #ffcc00; margin-bottom: 10px;">Connect With Us</h2>
-            <p>Follow us on social media to see our latest lighting designs and event highlights:</p>
-            
-            <div class="social-links">
-                <a href="https://www.instagram.com/dlightingevent" target="_blank" class="social-btn instagram">
-                    📷 Instagram
-                </a>
-                <a href="https://www.tiktok.com/@dlightingevent" target="_blank" class="social-btn tiktok">
-                    🎵 TikTok
-                </a>
-                <a href="mailto:dlightingevent@gmail.com" class="social-btn email">
-                    ✉️ dlightingevent@gmail.com
-                </a>
-                <a href="tel:+250783404051" class="social-btn phone">
-                    📞 +250 783 404 051
-                </a>
+            <div class="product-card">
+                <img src="event-6.jpg" alt="Light Plot Blueprint">
+                <div class="product-info">
+                    <div class="product-title">DMX Lighting Plot Scheme</div>
+                    <a href="tel:+250783404051" class="btn-readmore">View Details →</a>
+                </div>
             </div>
         </div>
 
     </div>
 
-    <!-- Floating Contact Button -->
-    <a href="tel:+250783404051" class="floating-btn">📞 Call / WhatsApp</a>
+    <!-- Floating Right-side Actions -->
+    <div class="floating-sidebar">
+        <a href="https://wa.me/250783404051" class="float-icon float-whatsapp" title="WhatsApp Us">💬</a>
+        <a href="tel:+250783404051" class="float-icon float-phone" title="Call Us">📞</a>
+        <a href="mailto:dlightingevent@gmail.com" class="float-icon float-email" title="Email Us">✉️</a>
+    </div>
 
-    <!-- JavaScript yo gufungura no gukinga Menu -->
+    <!-- Professional Footer -->
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>D LIGHTING EVENT</h3>
+                <p>Leading provider of professional stage lighting, intelligent moving heads, and event production systems in Rwanda.</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#services">Products & Services</a>
+                <a href="#layouts">Technical Blueprints</a>
+                <a href="https://www.instagram.com/dlightingevent" target="_blank">Instagram</a>
+                <a href="https://www.tiktok.com/@dlightingevent" target="_blank">TikTok</a>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contact Info</h3>
+                <p>📍 Kigali, Rwanda</p>
+                <p>📞 WhatsApp/Phone: +250 783 404 051</p>
+                <p>✉️ Email: dlightingevent@gmail.com</p>
+            </div>
+        </div>
+
+        <div class="copyright">
+            &copy; 2026 D LIGHTING EVENT. All Rights Reserved. Hosted on GitHub Pages.
+        </div>
+    </footer>
+
+    <!-- Script to toggle Dropdown Menu -->
     <script>
         function toggleMenu() {
-            var nav = document.getElementById("navLinks");
-            nav.classList.toggle("active");
+            var drawer = document.getElementById("navDrawer");
+            drawer.classList.toggle("active");
         }
     </script>
 
